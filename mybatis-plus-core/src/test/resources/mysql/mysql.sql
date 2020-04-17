@@ -81,3 +81,14 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户表';
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+DROP TABLE IF EXISTS `tbl_column_underline_false`;
+CREATE TABLE IF NOT EXISTS `tbl_column_underline_false` (
+  `id` int(11) NOT NULL,
+  `firstName` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `lastName` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+INSERT INTO `tbl_column_underline_false` (`id`, `firstName`, `lastName`) VALUES
+	(1, 'yu', 'xiaobin');
