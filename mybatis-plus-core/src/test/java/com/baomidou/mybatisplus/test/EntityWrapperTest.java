@@ -391,6 +391,17 @@ public class EntityWrapperTest {
         System.out.println(entityWrapper.getSqlSelect());
         Assert.assertEquals("name AS name1,age,sex AS sex1", entityWrapper.getSqlSelect());
     }
+    /**
+     * 测试 sqlSegment
+     */
+    @Test
+    public void testSqlSegment() {
+        EntityWrapper entityWrapper = new EntityWrapper();
+        entityWrapper.eq("name", 1);
+        entityWrapper.like("sex", "f");
+        System.out.println(entityWrapper.getSqlSegment());
+        Assert.assertEquals("AND (name = #{ew.paramNameValuePairs.MPGENVAL1} AND sex LIKE #{ew.paramNameValuePairs.MPGENVAL2})", entityWrapper.getSqlSegment());
+    }
 
     /**
      * 测试 EntityWrapper orderBy
